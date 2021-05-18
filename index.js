@@ -34,20 +34,16 @@ function searchOne() {
     },
     success: function (response) {
       const recipes = $("#recipes");
-      console.log(response);
       recipes.empty();
-      for (let i = 0; i < response.length; i++) {
-        let rec = response[i];
-        recipes.append(`<div class= "recipe" data-id="${rec._id}">
-        <h4><strong>Name:</strong> ${rec.name}</h4>
-        <p><strong>Price:</strong> ${rec.price}</p>
-        <p><strong>Department:</strong> ${rec.department}</p>
-        <p><strong>Color:</strong> ${rec.color}</p>
-        <p><strong>Description:</strong> ${rec.description}</p>
+      recipes.append(`<div class= "recipe" data-id="${response._id}">
+        <h4><strong>Name:</strong> ${response.name}</h4>
+        <p><strong>Price:</strong> ${response.price}</p>
+        <p><strong>Department:</strong> ${response.department}</p>
+        <p><strong>Color:</strong> ${response.color}</p>
+        <p><strong>Description:</strong> ${response.description}</p>
         <button id="delBtn" class="btn btn-danger btn-sm">Delete product</button>
         <button id="editBtn" class="btn btn-warning btn-sm">Edit product</button>
       </div>`);
-      }
     },
   });
 }
